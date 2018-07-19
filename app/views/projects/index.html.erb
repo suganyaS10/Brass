@@ -1,0 +1,25 @@
+
+<div class="content">
+<% if @projects.present? %>
+<% i = 1 %>
+
+
+  <table class="global-table">
+  	<tr>
+  		<th>Project</th>
+  		<th>Technology</th>
+  	</tr>
+  	<% @projects.each do |project| %>
+  	<% tr_class = ( i.odd? ) ? 'tr_odd' : 'tr_even' %>
+  	  <tr class=<%= "#{tr_class}" %> data-link = <%= project_path(project.id) %>>
+  	  	<td><%= project.name %></td>
+  	  	<td><%= project.technology %></td>
+  	  </tr>
+  	<% end %>
+  </table>	  
+<% else %>
+  <p> Your Projects Hub is empty! </p>
+<% end %>
+
+<%= link_to 'Create Projects', new_project_path, class: "action-btn" %>
+</div>

@@ -1,0 +1,39 @@
+<div class="content">
+	<div class="page-header">
+		<%= link_to image_tag("create.png"), {action: 'new', controller: 'tickets'}, class: 'action-icons' %>
+	</div>	
+
+	<% if @tickets.present? %>
+		<% i = 1 %>
+
+		<table class="global-table">
+
+			<tr>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Assignee</th>
+				<th>Created By</th>
+				<th>Created On</th>
+				<th>Project</th>
+			</tr>
+
+		  <% @tickets.each do |ticket| %>
+			  <% tr_class = (i.odd?) ? 'tr_odd' : 'tr_even' %>
+
+			  <tr class = <%= "#{tr_class}" %> data-link = <%= ticket_path(ticket.id) %>>
+			     <td><%= ticket.title %></td>
+			     <td><%= ticket.status %></td>
+			     <td><%= ticket.assignee.try(:name) %></td>
+			     <td><%= ticket.creator.try(:name) %></td>
+			     <td><%= ticket.created_at %></td>
+			     <td><%= ticket.project.try(:name) %></td>
+			  </tr>
+		  <% end %>
+
+		</table>
+
+	<% end %>
+
+	<%= will_paginate @tickets %>
+
+</div>

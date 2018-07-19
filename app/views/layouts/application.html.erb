@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brass</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<header>
+  		<div class="left left-header">
+      </div>
+
+  		<div class="right right-header">
+        <ul class="header-right-ul zero-margin">
+          <li id="products_btn" class="pointer-cursor"><%=image_tag('menu.png') %></li>
+          <% if current_user %>
+            <li class="pointer-cursor">Log Out</li>
+          <% else %>
+            <li class="pointer-cursor">Log In </li>
+          <% end %>
+          <li>
+        </ul>
+  		</div>
+  	</header>
+    <nav class="sidenav">
+        <ul class="sidenav-ul">
+          <li class="sidenav-li">
+            <a href="<%= projects_path %>">
+            <%= image_tag('projects.png', class: 'nav-image') %><span class="nav-text">Projects</span></a>
+          </li>
+          <li class="sidenav-li">
+            <a href="<%= tickets_path %>">
+              <%= image_tag('tickets.png',class: 'nav-image') %><span class="nav-text">Tickets</span></a>
+          </li>
+          <li class="sidenav-li">
+            <a href="<%= sprints_path %>">
+              <%= image_tag('sprints.png',class: 'nav-image') %><span class="nav-text">Sprints</span></a>
+          </li>
+        </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

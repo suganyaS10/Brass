@@ -1,0 +1,19 @@
+<%= form_for @project do |f| %>
+  
+  <div class="form-fields">
+		<%= f.label 'Name' %>
+		<%= f.text_field :name %>
+	</div>
+
+  <div class="form-fields">
+		<%= f.label 'Technology' %>
+		<%= f.text_field :technology %>
+	</div>	
+
+	<div class="form-fields">
+		<%= f.label 'Admin' %>
+		<%= f.select :user_id, User.all.collect { |u| [u.name, u.id] } %>
+	</div>
+
+	<%= f.submit 'Create project' %>
+<% end %>

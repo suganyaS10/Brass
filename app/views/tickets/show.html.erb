@@ -1,0 +1,50 @@
+
+<div class="global-display">
+
+	<div class="page-header">
+		<%= link_to image_tag("edit.png"), {action: 'edit', controller: 'tickets'}, class: 'action-icons' %>
+	</div>	
+  
+  <div class="form-fields">
+	<p class="label">Title:</p>
+	<p class="disp-data"><%= @ticket.title %></p></div>
+
+	<div class="form-fields"><p class="label">Status:</p>
+	<p class="disp-data"><%= @ticket.status %></p></div>
+
+	<div class="form-fields"><p class="label">Assignee:</p>
+	<p class="disp-data"><%= @ticket.assignee.try(:name) %></p></div>
+
+	<div class="form-fields"><p class="label">Created By:</p>
+	<p class="disp-data"><%= @ticket.creator.try(:name) %></p></div>
+
+	<div class="form-fields"><p class="label">Story Points:</p>
+	<p class="disp-data"><%= @ticket.story_points %></p></div>
+
+	<div class="form-fields"><p class="label">Estimation:</p>
+	<p class="disp-data"><%= @ticket.estimation %></p></div>
+	
+	<div class="form-fields"><p class="label">Type:</p>
+	<p class="disp-data"><%= @ticket.type %></p></div>
+	
+	<div class="form-fields"><p class="label">Priority:</p>
+	<p class="disp-data"><%= @ticket.priority %></p></div>
+	
+	<div class="form-fields"><p class="label">SLA:</p>
+	<p class="disp-data"><%= @ticket.sla %></p></div>
+	
+	<div class="form-fields"><p class="label">SLA units:</p>
+	<p class="disp-data"><%= @ticket.sla_unit %></p></div>
+	
+	<div class="form-fields"><p class="label">Sprint:</p>
+	<p class="disp-data"><%= @ticket.sprint.try(:name) %></p></div>
+
+</div>
+
+
+
+
+
+
+
+

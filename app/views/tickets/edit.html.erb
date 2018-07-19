@@ -1,0 +1,79 @@
+<%= form_for @ticket do |t| %>
+
+  <div class="form-fields">
+		<%= t.label 'Title' %>
+		<%= t.text_field :title %>
+	</div>
+	 
+	<div class="form-fields">
+		<%= t.label 'Description' %>
+		<%= t.text_area :description %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Status' %>
+		<%= t.select :status, Ticket::STATUS_ARRAY %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Assignee' %>
+		<%= t.select :assignee_id, User.all.collect { |u| [u.name, u.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Creator' %>
+		<%= t.select :creator_id, User.all.collect { |u| [u.name, u.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.radio_button :is_epic, 'Yes' %>
+		<%= t.label :is_epic, 'Yes' %>
+		<%= t.radio_button :is_epic, 'No', checked: true %>
+		<%= t.label :is_epic, 'No' %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Project' %>
+		<%= t.select :project_id, Project.all.collect { |u| [u.name, u.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Story Points' %>
+		<%= t.text_field :story_points %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Estimation' %>
+		<%= t.text_field :estimation %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'type' %>
+		<%= t.select :type, Ticket::TYPE_ARRAY %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Priority' %>
+		<%= t.select :priority, Ticket::PRIOTITY_ARRAY %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Project' %>
+		<%= t.select :project_id, Project.all.collect { |p| [p.name, p.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'Sprint' %>
+		<%= t.select :sprint_id, Sprint.all.collect { |p| [p.name, p.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= t.label 'SLA' %>
+		<%= t.select :sla, options_for_select((1..30).step(1)), id: 'sla' %>
+		<%= t.label 'SLA Unit' %>
+		<%= t.select :sla_unit, Ticket::SLA_UNITS, id: 'sla_units' %>
+	</div>
+
+	<%= t.submit 'Update', class: 'action-btn' %>
+
+<% end %>

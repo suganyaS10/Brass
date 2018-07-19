@@ -1,0 +1,29 @@
+<%= form_for @sprint do |f| %>
+  
+  <div class="form-fields">
+		<%= f.label 'Name' %>
+		<%= f.text_field :name %>
+	</div>
+
+  <div class="form-fields">
+		<%= f.label 'Project' %>
+		<%= f.select :project_id, Project.all.collect { |u| [u.name, u.id] } %>
+	</div>	
+
+	<div class="form-fields">
+		<%= f.label 'Creator' %>
+		<%= f.select :creator_id, User.all.collect { |u| [u.name, u.id] } %>
+	</div>
+
+	<div class="form-fields">
+		<%= f.label 'Start Date' %>
+		<%= f.date_field :start_date %>
+	</div>
+
+	<div class="form-fields">
+		<%= f.label 'End Date' %>
+		<%= f.date_field :end_date %>
+	</div>
+
+	<%= f.submit 'Update', class: 'action-btn' %>
+<% end %>

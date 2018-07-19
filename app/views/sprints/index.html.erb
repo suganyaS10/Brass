@@ -1,0 +1,36 @@
+<div class="content">
+	<div class="page-header">
+		<%= link_to image_tag("create.png"), {action: 'new', controller: 'sprints'}, class: 'action-icons' %>
+	</div>	
+
+	<% if @sprints.present? %>
+		<% i = 1 %>
+
+		<table class="global-table">
+
+			<tr>
+				<th>Name</th>
+				<th>Project</th>
+				<th>Creator</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+			</tr>
+
+		  <% @sprints.each do |sprint| %>
+			  <% tr_class = (i.odd?) ? 'tr_odd' : 'tr_even' %>
+
+			  <tr class = <%= "#{tr_class}" %> data-link = <%= sprint_path(sprint.id) %>>
+			     <td><%= sprint.name %></td>
+			     <td><%= sprint.project.try(:name) %></td>
+			     <td><%= sprint.creator.try(:name) %></td>
+			     <td><%= sprint.start_date %></td>
+			     <td><%= sprint.end_date %></td>
+			  </tr>
+		  <% end %>
+
+		</table>
+
+	<% end %>
+
+
+</div>
