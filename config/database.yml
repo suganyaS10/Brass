@@ -14,3 +14,11 @@ test:
   password: root
   host: 127.0.0.1
   port: 3306
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: braz_staging
+  username: brazroot
+  password: brazrootpwd
+  host: braz-staging.c3lgkykl3ts5.us-east-2.rds.amazonaws.com
+  port: 3306
