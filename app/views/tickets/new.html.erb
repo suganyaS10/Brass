@@ -42,7 +42,9 @@
 			<%= t.label 'Project' %>
 			<%= t.select :project_id, Project.all.collect { |p| [p.name, p.id] } %>
 		</div>
+	</div>
 
+	<div class='form-right parallel-aligned-form'>
 		<div class="form-fields">
 			<%= t.label 'Story Points' %>
 			<%= t.text_field :story_points %>
@@ -51,10 +53,8 @@
 		<div class="form-fields">
 			<%= t.label 'Estimation' %>
 			<%= t.text_field :estimation %>
-		</div>
-	</div>
+		</div>	
 
-	<div class='form-right parallel-aligned-form'>
 		<div class="form-fields">
 			<%= t.label 'type' %>
 			<%= t.select :type, Ticket::TYPE_ARRAY %>

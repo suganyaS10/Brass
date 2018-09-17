@@ -61,15 +61,24 @@ form{
 	padding: 20px;
 }
 label{
-  width: 100px;
+  width: 200px;
   display: inline-block;
 }
-input{
-	border: 5px groove;
+input,
+select{
+	height: 20px;
+  width: 300px;
+  /* box-shadow: none; */
+  outline: none;
+  border-radius: 5px;
 }
 h2{
 	margin: 0;
 	margin-left: 20px;
+}
+#error_explanation{
+	background: red;
+	padding: 5px;
 }
 .content{
 	margin: 0 auto;
@@ -78,7 +87,13 @@ h2{
 }
 .form-fields{
 	padding: 20px;
-
+}
+.field{
+	padding: 10px;
+}
+.devise-div{
+	width: 50% !important;
+	margin: 0 auto;
 }
 .global-table{
 	width: 100%;
@@ -118,8 +133,8 @@ h2{
 	margin: 0;
 }
 .action-icons img{
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 }
 .page-header{
 	float: right;

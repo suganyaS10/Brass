@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'projects#index'
 
+  resources :users_admin, :controller => 'users'
+
   resources :projects
 
   resources :tickets
